@@ -79,9 +79,11 @@ A React-based frontend application that implements user and captain authenticati
     lastName: string
   }
 }
+```
 
 - `Tech Stack`
 - React
     - React Router DOM
    - Context API
       - TailwindCSS
+
