@@ -65,6 +65,53 @@ A React-based frontend application that implements user and captain authenticati
 - Form validation: Client-side validation for required fields
 - Success: Clears form and stores captain data
 
+### Protected Routes & Authentication
+
+#### User Logout
+**Path:** `/userlogout`  
+**Component:** [`UserLogout`](src/Pages/UserLogout.jsx)  
+**Description:** Handles user logout and token cleanup
+- Makes authenticated request to logout endpoint
+- Clears token from localStorage
+- Redirects to login page
+
+**Headers Required:**
+- `Authorization: Bearer <token>`
+
+#### Protection Wrappers
+
+##### User Protection
+**Component:** [`UserProtectWrapper`](src/Pages/UserProtectWrapper.jsx)  
+**Description:** HOC that protects user-only routes
+- Verifies user authentication token
+- Fetches and stores user profile data
+- Redirects to login if unauthorized
+- Shows loading state during verification
+
+**Protected Routes:**
+- `/home` - User homepage
+- `/userlogout` - User logout page
+
+##### Captain Protection  
+**Component:** [`CaptainProtectWrapper`](src/Pages/CaptainProtectWrapper.jsx)  
+**Description:** HOC that protects captain-only routes
+- Verifies captain authentication token  
+- Fetches and stores captain profile data
+- Redirects to captain login if unauthorized
+- Shows loading state during verification
+
+**Protected Routes:**
+- `/captain-home` - Captain dashboard
+
+**Usage Example:**
+```jsx
+<Route path="/home" element={
+  <UserProtectWrapper>
+    <Home/>
+  </UserProtectWrapper>
+}/>
+```
+
 ### Context Provider
 
 #### User Context
@@ -74,16 +121,17 @@ A React-based frontend application that implements user and captain authenticati
 ```javascript
 {
   email: string,
-  fullName: {
-    firstName: string,
-    lastName: string
+  fullname: {
+    firstname: string,
+    lastname: string
   }
 }
 ```
 
+```
 - `Tech Stack`
 - React
     - React Router DOM
    - Context API
       - TailwindCSS
-
+```
