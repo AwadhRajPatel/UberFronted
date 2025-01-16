@@ -214,8 +214,8 @@ A React-based frontend application that implements user and captain authenticati
       - TailwindCSS
 
 - `Required Dependencies`
-      - React Router DOM - For navigation
-      - TailwindCSS - For styling
-- Remix Icon - For icons (ri- classes)
+  - React Router DOM - For navigation
+  - TailwindCSS - For styling
+ - Remix Icon - For icons (ri- classes)
   - GSAP - For animations
 - Context API - For state management
