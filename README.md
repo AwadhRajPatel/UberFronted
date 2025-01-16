@@ -128,10 +128,94 @@ A React-based frontend application that implements user and captain authenticati
 }
 ```
 
+## Components Documentation
+
+### Location Search Panel
+**Component:** [`LocationSearchPanel`](src/components/LocationSearchPanel.jsx)  
+**Description:** Displays a list of selectable location suggestions for pickup/destination.
+
+**Props:**
+- `setPanelOpen(boolean)` - Controls visibility of location panel
+- `setVehiclePanel(boolean)` - Controls visibility of vehicle selection panel
+
+**Usage Example:**
+```jsx
+<LocationSearchPanel 
+  setPanelOpen={setPanelOpen}
+  setVehiclePanel={setVehiclePanel} 
+/>
 ```
+## Vehicle Selection Panel
+- `Component: `
+   ### VehiclePanel
+## Description: 
+- Shows available vehicle options with pricing and details.
+
+# Props:
+
+- setConfirmRidePanel(boolean) - Controls visibility of ride confirmation panel
+- setVehiclePanel(boolean) - Controls own visibility
+
+## Features:
+ - Shows vehicle types (UberGo, Moto, UberAuto)
+- Displays pricing, ETA and capacity for each option
+ - Active state styling on selection
+ - Confirm Ride Panel
+ - Component: ConfirmRide
+## Description: 
+- Final confirmation screen showing ride details before booking.
+
+# Props:
+
+- setVehiclePanel(boolean) - Controls visibility of vehicle panel
+- setVehicleFound(boolean) - Controls visibility of driver search panel
+## Features:
+
+- Shows pickup and destination locations
+- Displays final fare
+- Confirm button to initiate booking
+- Looking For Driver Panel
+- Component: LookingForDriver
+## Description: 
+ - Loading screen while searching for available drivers.
+
+# Props:
+
+- setVehicleFound(boolean) - Controls own visibility
+
+### Features:
+
+- Shows ride details
+- Location and fare information
+- Loading state while matching driver
+- Waiting For Driver Panel
+- Component: WaitingForDriver
+
+## Description: 
+- Shows matched driver details and ride information.
+
+# Props:
+
+- setWaitingForDriver(boolean) - Controls own visibility
+
+## Features:
+- Driver name and vehicle details
+- Pickup and destination locations
+- Final fare confirmation
+
+## Component Flow
+- Location Search → Vehicle Selection → Confirm Ride → Looking For Driver → Waiting For Driver
+
+
 - `Tech Stack`
 - React
     - React Router DOM
    - Context API
       - TailwindCSS
-```
+
+- `Required Dependencies`
+      - React Router DOM - For navigation
+      - TailwindCSS - For styling
+- Remix Icon - For icons (ri- classes)
+  - GSAP - For animations
+- Context API - For state management
